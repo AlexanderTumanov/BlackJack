@@ -57,7 +57,7 @@ while playerIn or dealerIn:
         deal(playerHand)
     if total(playerHand) >= 21:
         break
-    elif total(dealerHand):
+    elif total(dealerHand) >= 21:
         break
 
 # determine winner
