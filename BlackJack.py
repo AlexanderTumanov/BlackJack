@@ -1,20 +1,25 @@
 import random
+
 playerIn = True
 dealerIn = True
 
 # Deck of cards / player-dealer hand
-deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 3, 4, 5, 6, 7, 8, 9, 10, 
-         'J', 'Q', 'K', 'A', 'J', 'Q', 'K', 'A', 'J', 'Q', 'K', 'A', 'J', 'Q', 'K', 'A']
+deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 3, 4, 5, 6, 7, 8, 9, 10, 2, 3, 4, 5, 6, 7, 8, 9, 10,
+        'J', 'Q', 'K', 'A', 'J', 'Q', 'K', 'A', 'J', 'Q', 'K', 'A', 'J', 'Q', 'K', 'A']
 playerHand = []
 dealerHand = []
 
 # deal cards
+
+
 def deal(turn):
     card = random.choice(deck)
     turn.append(card)
     deck.remove(card)
 
 # get total of player-dealer's hands
+
+
 def total(turn):
     total = 0
     face = ['J', 'K', 'Q']
@@ -31,11 +36,14 @@ def total(turn):
     return total
 
 # reveal dealer's hand
+
+
 def reavealDealerHand():
     if len(dealerHand) == 2:
         return dealerHand[0]
     elif len(dealerHand) > 2:
         return dealerHand[0], dealerHand[1]
+
 
 # game loop
 for _ in range(2):
@@ -62,13 +70,16 @@ while playerIn or dealerIn:
 
 # determine winner
 if total(playerHand) and total(dealerHand) == 21:
-    print(f"\nYou have {playerHand} for a total of 21 and the dealer has {dealerHand} for a total of 21")
+    print(
+        f"\nYou have {playerHand} for a total of 21 and the dealer has {dealerHand} for a total of 21")
     print("Push! Both have 21!")
 elif total(playerHand) == 21:
-    print(f"\nYou have {playerHand} for a total of 21 and the dealer has {dealerHand} for a total of {total(dealerHand)}")
+    print(
+        f"\nYou have {playerHand} for a total of 21 and the dealer has {dealerHand} for a total of {total(dealerHand)}")
     print("Blackjack! You win!")
 elif total(dealerHand) == 21:
-    print(f"\nYou have {playerHand} for a total of {total(playerHand)} and the dealer has {dealerHand} for a total of 21")
+    print(
+        f"\nYou have {playerHand} for a total of {total(playerHand)} and the dealer has {dealerHand} for a total of 21")
     print("Blackjack! Dealer wins!")
 elif total(playerHand) > 21:
     print(f"\nYou have {playerHand} for a total of {total(playerHand)} and the dealer has {dealerHand} for a total of {total(dealerHand)}")
@@ -82,9 +93,3 @@ elif 21 - total(dealerHand) < 21 - total(playerHand):
 elif 21 - total(dealerHand) > 21 - total(playerHand):
     print(f"\nYou have {playerHand} for a total of {total(playerHand)} and the dealer has {dealerHand} for a total of {total(dealerHand)}")
     print("You win!")
-
-
-
-
-
-
